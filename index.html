@@ -361,6 +361,7 @@
 </div>
 <div class="container">
     <div class="stats-summary" id="statsSummary"></div>
+    <button class="reset-btn" id="globalResetBtn">🗑️  RESET ALL RESULTS</button>
     <div class="round-section">
         <div class="round-header">
             <div class="round-title" id="roundTitle">Round 1</div>
@@ -386,18 +387,18 @@
 
 <script>
     // ---------- LEAGUE DATA (EXACT SAME AS ORIGINAL FIXTURES) ----------
-    const teams = ["Enzo","Nween Enock","Issah Stephen","Rich Pogba","Unruly Dazzy","Niina Ragga","Quame Dollar","Inusah Richkid","Bless Dee","Ibrahim"];
+    const teams = ["Enzo","Tiger","Issah Stephen","Rich Pogba","Unruly Dazzy","Niina Ragga","Quame Dollar","Inusah Richkid","Bless Dee","Kotoko"];
     
     const roundsRaw = [
-        ["Enzo","Nween Enock"],["Issah Stephen","Rich Pogba"],["Unruly Dazzy","Niina Ragga"],["Quame Dollar","Inusah Richkid"],["Bless Dee","Ibrahim"],
-        ["Nween Enock","Issah Stephen"],["Rich Pogba","Unruly Dazzy"],["Niina Ragga","Quame Dollar"],["Inusah Richkid","Bless Dee"],["Ibrahim","Enzo"],
-        ["Issah Stephen","Enzo"],["Unruly Dazzy","Nween Enock"],["Quame Dollar","Rich Pogba"],["Bless Dee","Niina Ragga"],["Ibrahim","Inusah Richkid"],
-        ["Enzo","Unruly Dazzy"],["Issah Stephen","Quame Dollar"],["Nween Enock","Bless Dee"],["Rich Pogba","Ibrahim"],["Niina Ragga","Inusah Richkid"],
-        ["Quame Dollar","Enzo"],["Bless Dee","Issah Stephen"],["Ibrahim","Nween Enock"],["Inusah Richkid","Rich Pogba"],["Unruly Dazzy","Niina Ragga"],
-        ["Enzo","Bless Dee"],["Issah Stephen","Ibrahim"],["Nween Enock","Inusah Richkid"],["Rich Pogba","Niina Ragga"],["Quame Dollar","Unruly Dazzy"],
-        ["Ibrahim","Enzo"],["Inusah Richkid","Issah Stephen"],["Niina Ragga","Nween Enock"],["Unruly Dazzy","Rich Pogba"],["Bless Dee","Quame Dollar"],
-        ["Enzo","Inusah Richkid"],["Issah Stephen","Niina Ragga"],["Nween Enock","Unruly Dazzy"],["Rich Pogba","Bless Dee"],["Quame Dollar","Ibrahim"],
-        ["Niina Ragga","Enzo"],["Unruly Dazzy","Issah Stephen"],["Bless Dee","Nween Enock"],["Ibrahim","Rich Pogba"],["Inusah Richkid","Quame Dollar"]
+        ["Enzo","Tiger"],["Issah Stephen","Rich Pogba"],["Unruly Dazzy","Niina Ragga"],["Quame Dollar","Inusah Richkid"],["Bless Dee","Kotoko"],
+        ["Tiger","Issah Stephen"],["Rich Pogba","Unruly Dazzy"],["Niina Ragga","Quame Dollar"],["Inusah Richkid","Bless Dee"],["Kotoko","Enzo"],
+        ["Issah Stephen","Enzo"],["Unruly Dazzy","Tiger"],["Quame Dollar","Rich Pogba"],["Bless Dee","Niina Ragga"],["Kotoko","Inusah Richkid"],
+        ["Enzo","Unruly Dazzy"],["Issah Stephen","Quame Dollar"],["Tiger","Bless Dee"],["Rich Pogba","Kotoko"],["Niina Ragga","Inusah Richkid"],
+        ["Quame Dollar","Enzo"],["Bless Dee","Issah Stephen"],["Kotoko","Tiger"],["Inusah Richkid","Rich Pogba"],["Unruly Dazzy","Niina Ragga"],
+        ["Enzo","Bless Dee"],["Issah Stephen","Kotoko"],["Tiger","Inusah Richkid"],["Rich Pogba","Niina Ragga"],["Quame Dollar","Unruly Dazzy"],
+        ["Kotoko","Enzo"],["Inusah Richkid","Issah Stephen"],["Niina Ragga","Tiger"],["Unruly Dazzy","Rich Pogba"],["Bless Dee","Quame Dollar"],
+        ["Enzo","Inusah Richkid"],["Issah Stephen","Niina Ragga"],["Tiger","Unruly Dazzy"],["Rich Pogba","Bless Dee"],["Quame Dollar","Kotoko"],
+        ["Niina Ragga","Enzo"],["Unruly Dazzy","Issah Stephen"],["Bless Dee","Tiger"],["Kotoko","Rich Pogba"],["Inusah Richkid","Quame Dollar"]
     ];
     
     // generate rounds grouping (5 matches per round) and then double round-robin (home&away)
