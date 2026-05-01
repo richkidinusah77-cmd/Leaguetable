@@ -404,8 +404,8 @@
     // generate rounds grouping (5 matches per round) and then double round-robin (home&away)
     function buildAllRounds() {
         let roundsGroup = [];
-        for (let i = 0; i < roundsRaw.length; i += 5) {
-            roundsGroup.push(roundsRaw.slice(i, i+5));
+        for (let i = 0; i < roundsRaw.length; i += 9) {
+            roundsGroup.push(roundsRaw.slice(i, i+9));
         }
         // first half + second half reversed (away fixtures)
         const secondHalf = roundsGroup.map(round => round.map(([h, a]) => [a, h]));
